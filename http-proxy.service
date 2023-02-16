@@ -1,0 +1,12 @@
+[Unit]
+Description=http-proxy
+After=network.target
+
+[Service]
+Type=simple
+User=pinnacle
+ExecStart=/usr/bin/node --insecure-http-parser /home/pinnacle/Code/http-proxy/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
