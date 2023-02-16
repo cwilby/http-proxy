@@ -3,7 +3,7 @@
 ```bash
 # First, clone the repository to /home/{user}/http-proxy.
 git clone https://github.com/cwilby/http-proxy ~/http-proxy
-cd node-12-http-proxy
+cd ~/http-proxy
 
 # Then, run the install script to setup a systemctl service.
 ./install.sh
