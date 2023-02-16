@@ -8,8 +8,11 @@ app.use(morgan('dev'));
 
 app.get('/', async (req, res) => {
   try {
-    const { ip, path } = req.query;
-    const response = await axios.get(`http://${ip}/${path}`);
+    const { ip, path, ...query } = req.query;
+
+    const params = Object.keys(query).map(key => `${key}=${query[key]}`).join('&');
+
+    const response = await axios.get(`http://${ip}/${path}${params ? `?${params}` : ''}`);
 
     res.status(response.status);
     res.send(response.data);
